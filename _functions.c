@@ -13,7 +13,7 @@
 int printchar(va_list arg_list, char arr_buffer[], int flags, int width, int prec, int size)
 {
     char c = va_arg(arg_list, int);
-    return (handles_write_char_function(c, arr_buffer, flags, width, prec, size));
+    return (handles_write_char(c, arr_buffer, flags, width, prec, size));
 }
 
 /**

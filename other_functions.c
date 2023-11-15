@@ -114,27 +114,43 @@ int print_reverse_str(va_list arg_list, char arr_buffer[], int flags, int width,
  * @flags: active flags
  * Return: length of string that is printed.
 */
-int print_rot13(va_list arg_list, f_flags flags)
+int print_rot13(va_list arg_list, char arr_buffer[], int flags, int width, int prec, int size)
 {
-    int i, j;
-    char text[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char TEXT[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-    char *str = va_arg(arg_list, char *);
+   char x;
+	char *str;
+	unsigned int i, j;
+	int counter = 0;
+	char text_in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char text_out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-    (void)flags;
-    for (j = 0; str[j]; j++)
-    {
-        if (str[j] < 'A' || (str[j] > 'Z' && str[j] < 'a') || str[j] > 'z')
-            _putchar(str[j]);
-        else
-        {
-            for (i = 0; i <= 52; i++)
-            {
-                if (str[j] == text[i])
-                    _putchar(TEXT[i]);
-            }
-        }
-    }
-    return (j);
+	str = va_arg(arg_list, char *);
+	(void)prec;
+	(void)flags;
+	(void)width;
+	(void)arr_buffer;
+	(void)size;
+
+	if (str == NULL)
+		str = "(AHYY)";
+	for (i = 0; str[i]; i++)
+	{
+		for (j = 0; text_in[j]; j++)
+		{
+			if (text_in[j] == str[i])
+			{
+				x = text_out[j];
+				write(1, &x, 1);
+				counter++;
+				break;
+			}
+		}
+		if (!text_in[j])
+		{
+			x = str[i];
+			write(1, &x, 1);
+			counter++;
+		}
+	}
+	return (counter);
 
 }

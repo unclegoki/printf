@@ -79,8 +79,8 @@ int print_size(const char *formatted_string, int *print_args);
 int print_reverse_str(va_list arg_list, char arr_buffer[], int flags, int width, int prec, int size);
 
 /*Function to print a string in rot 13*/
-int print_rot13(va_list arg_list, f_flags flags)
-/*int print_rot13(va_list arg_list, char arr_buffer[], int flags, int width, int precision, int size);*/
+/*int print_rot13(va_list arg_list, f_flags flags)*/
+int print_rot13(va_list arg_list, char arr_buffer[], int flags, int width, int precision, int size);
 
 /* width handler */
 int handles_write_char(char c, char arr_buffer[], int flags, int width, int prec, int size);
@@ -88,7 +88,7 @@ int write_number(int is_positive, int ind, char arr_buffer[], int flags, int wid
 int write_num(int ind, char arr_buffer[], int flags, int width, int precision, int length, char padd, char extra_char);
 int write_pointer(char arr_buffer[], int ind, int length, int width, int flags, char padd, char extra_c, int padd_start);
 
-int write_unsigned(int is_neg, int i, char arr_buffer[], int flags, int width, int precision, int size);
+int write_unsigned_int(int is_neg, int i, char arr_buffer[], int flags, int width, int preci, int size);
 
 /****************** UTILS ******************/
 int printable(char);
