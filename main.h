@@ -11,6 +11,8 @@
 #define FLAG_HASH 8
 #define FLAG_SPACE 16
 
+#define UNUSED(x) (void)(x)
+
 /**
  * struct flags - struct containing flags to "turn on"
  * when a flag specifier is passed to _printf()

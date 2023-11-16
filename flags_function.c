@@ -19,7 +19,7 @@ int my_flag(const char *formatted_string, int *i)
         {
             if (formatted_string[curr] == FLAGS_SYM[x])
             {
-                flags != ARR_FLAGS[x];
+		flags |= ARR_FLAGS[x];
                 break;
             }
         }
