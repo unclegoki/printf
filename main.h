@@ -100,6 +100,6 @@ int is_number(char);
 long int convert_size_num(long int num, int size);
 long int convert_unsigned_int(unsigned long int num, int size);
 
-_putchar(char c);
+int _putchar(char c);
 
 #endif
